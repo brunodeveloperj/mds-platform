@@ -1,7 +1,7 @@
 # MDS Platform
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-brightgreen)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.6-brightgreen)
 ![Maven](https://img.shields.io/badge/Maven-3.9-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-active-success)
@@ -25,6 +25,16 @@ This project manages:
 - Shared configurations
 - Build patterns
 - Release standards
+
+---
+
+## Technical Stack
+
+- Java 21
+- Spring Boot 4.0.6
+- Maven
+- Spring Auto Configuration
+- Multi-module architecture
 
 ---
 
@@ -62,9 +72,8 @@ spring-crud-pattern
 
 - BOM support
 - Version catalogs
-- Centralized plugin management
 - Release automation
-- Platform governance
+- Governance standards
 - Internal artifact registry
 
 ---
