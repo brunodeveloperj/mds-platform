@@ -1,2 +1,3 @@
-# mds-platform
-Parent platform for MDS (Martins Desenvolvimento de Sistemas), responsible for centralizing dependency management, version control, build standards, plugins, and shared configurations across the ecosystem.
+# MDS Platform
+
+Enterprise-grade Spring Boot ecosystem developed by Martins Desenvolvimento de Sistemas to standardize architecture, security, communication, resilience, and reusable patterns across microservices.
