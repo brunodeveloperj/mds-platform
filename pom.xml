@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.0.6</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.mds.platform</groupId>
+  <artifactId>mds-platform</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>mds-platform</name>
+  <description>Parent platform for MDS — centralizing dependency management, version control, build standards, plugins, and shared configurations across the ecosystem.</description>
+
+  <organization>
+    <name>Martins Desenvolvimento de Sistemas</name>
+  </organization>
+
+  <!-- ====================================================================== -->
+  <!-- Properties — single source of truth for all versions in the ecosystem  -->
+  <!-- ====================================================================== -->
+  <properties>
+    <!-- Java -->
+    <java.version>21</java.version>
+
+    <!-- Encoding -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- MDS Ecosystem versions -->
+    <mds.version>0.0.1-SNAPSHOT</mds.version>
+    <mds-platform.version>1.0.0-SNAPSHOT</mds-platform.version>
+
+    <!-- Spring Cloud -->
+    <spring-cloud.version>2025.1.1</spring-cloud.version>
+
+    <!-- Third-party versions (not managed by spring-boot-starter-parent) -->
+    <feign-okhttp.version>13.4</feign-okhttp.version>
+    <google-guava.version>33.1.0-jre</google-guava.version>
+    <java-jwt.version>4.4.0</java-jwt.version>
+    <commons-io.version>2.16.1</commons-io.version>
+    <owasp-encoder.version>1.3.1</owasp-encoder.version>
+    <springdoc-openapi.version>3.0.3</springdoc-openapi.version>
+
+    <!-- Plugin versions -->
+    <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
+    <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
+    <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+  </properties>
+
+  <!-- ====================================================================== -->
+  <!-- Dependency Management — governs versions for the entire ecosystem      -->
+  <!-- ====================================================================== -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- ======================== -->
+      <!-- Spring Cloud BOM         -->
+      <!-- ======================== -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- ======================== -->
+      <!-- MDS Libraries            -->
+      <!-- ======================== -->
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>shared-core-lib</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-error-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-retry-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-crypto-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-token-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-security-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-data-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-cache-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-crud-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds</groupId>
+        <artifactId>spring-comm-pattern</artifactId>
+        <version>${mds.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mds.platform</groupId>
+        <artifactId>mds-platform-starter</artifactId>
+        <version>${mds-platform.version}</version>
+      </dependency>
+
+      <!-- ======================== -->
+      <!-- Third-party Libraries    -->
+      <!-- ======================== -->
+      <dependency>
+        <groupId>io.github.openfeign</groupId>
+        <artifactId>feign-okhttp</artifactId>
+        <version>${feign-okhttp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${google-guava.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.auth0</groupId>
+        <artifactId>java-jwt</artifactId>
+        <version>${java-jwt.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.owasp.encoder</groupId>
+        <artifactId>encoder</artifactId>
+        <version>${owasp-encoder.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>${springdoc-openapi.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- ====================================================================== -->
+  <!-- Build — plugin management inherited by all child modules               -->
+  <!-- ====================================================================== -->
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Compiler -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>${java.version}</release>
+            <parameters>true</parameters>
+          </configuration>
+        </plugin>
+
+        <!-- Tests -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+        </plugin>
+
+        <!-- Javadoc -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+        </plugin>
+
+        <!-- Source JAR -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${maven-source-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Code formatter (Google Java Format) -->
+        <plugin>
+          <groupId>com.coveo</groupId>
+          <artifactId>fmt-maven-plugin</artifactId>
+          <version>${fmt-maven-plugin.version}</version>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>format</goal>
+              </goals>
+              <phase>process-sources</phase>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Enforcer — governance rules -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven-enforcer-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>enforce-standards</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireJavaVersion>
+                    <version>[21,)</version>
+                    <message>[MDS Platform] Java 21+ is required.</message>
+                  </requireJavaVersion>
+                  <requireMavenVersion>
+                    <version>[3.9,)</version>
+                    <message>[MDS Platform] Maven 3.9+ is required.</message>
+                  </requireMavenVersion>
+                </rules>
+                <fail>true</fail>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
